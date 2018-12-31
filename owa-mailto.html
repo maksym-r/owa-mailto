@@ -1,0 +1,34 @@
+<script>
+	// OWA mailto handler 0.1.0
+	// based on:
+	// https://blogs.msdn.microsoft.com/carloshm/2016/01/16/how-to-compose-a-new-message-or-event-and-populate-fields-in-office365/
+	// 
+
+	let pairs = [];
+	let email = "";
+	let subject = "";
+	let body = "";
+	
+	const pos = document.URL.indexOf("?");
+	const mailto = document.URL.substring(pos+1);
+	
+	const splits = mailto.split(/(?:\?|&)/);
+	
+	for(let i = 0;i<splits.length;i++){
+		const keyword = splits[i].match(/(\w+)(?:=|:)(.*)/);
+		console.log(keyword[1],keyword[2]);
+		switch(keyword[1]){
+		case "mailto":
+			email = keyword[2];
+			break
+		case "subject":
+			subject = keyword[2];
+			break
+		case "body":
+			body = keyword[2];
+			break
+	  }
+	}
+	
+	location.assign('https://outlook.office.com/owa/?path=/mail/action/compose&to=' + email + '&subject=' + subject + '&body=' + body);
+</script>

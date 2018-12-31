@@ -1,0 +1,34 @@
+Windows Registry Editor Version 5.00
+ 
+[HKEY_LOCAL_MACHINE\SOFTWARE\owa-mailto\Capabilities]
+"ApplicationDescription"="owamailto is a mailto: to OWA connector."
+"ApplicationName"="owamailto"
+ 
+[HKEY_LOCAL_MACHINE\SOFTWARE\owa-mailto\Capabilities\FileAssociations]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\owa-mailto\Capabilities\URLAssociations]
+"mailto"="owa-mailtoURL"
+ 
+[HKEY_LOCAL_MACHINE\SOFTWARE\RegisteredApplications]
+"owa-mailto"="SOFTWARE\\owa-mailto\\Capabilities"
+ 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\owa-mailtoURL]
+@="owa-mailto Document"
+"FriendlyTypeName"="owa-mailto Document"
+ 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\owa-mailtoURL\shell]
+ 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\owa-mailtoURL\shell\open]
+ 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\owa-mailtoURL\shell\open\command]
+;; You need to uncomment an appropriate line to use the desired browser and adjust the owa-mailto path
+
+;; @="\"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\" file:///C:/owa-mailto/owa-mailto.html\"?\"%1\""
+;; @="\"C:\\Opera\\launcher.exe\" file:///C:/owa-mailto/owa-mailto.html\"?\"%1\""
+;; @="\"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" file:///C:/owa-mailto/owa-mailto.html\"?\"%1\""
+
+;; Microsoft Edge cannot open links programmatically without an external program
+;; which can be found here: https://github.com/MicrosoftEdge/edge-launcher/tree/v1.2.2
+;; exe binaries can be downloaded here: https://github.com/MicrosoftEdge/edge-launcher/releases
+
+;; @="\"C:\\MicrosoftEdgeLauncher.exe\" file:///C:/owa-mailto/owa-mailto.html\"?\"%1\""
